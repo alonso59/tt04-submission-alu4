@@ -11,12 +11,12 @@ module tt_um_alu4_alonso59 (
 assign uio_out = 0;
 assign uio_oe = 0;
 assign uo_out[7:5] = 0;
-// pwm DUT(
-// 	.clk(clk),
-// 	.resetn(rst_n),
-// 	.duty_cycle(ui_in[3:0]),
-// 	.pwm_out(uo_out[0])
-// );
+pwm DUT(
+	.clk(clk),
+	.resetn(rst_n),
+	.duty_cycle(ui_in[3:0]),
+	.pwm_out(uo_out[0])
+);
 
 	ALU_4bit alu1(.Out(uo_out[3:0]), .Z(uo_out[4]), .C(0), .V(0), .P(0), .A(ui_in[7:4]), .B(ui_in[7:4]), .Opcode(ui_in[3:0]));
 endmodule

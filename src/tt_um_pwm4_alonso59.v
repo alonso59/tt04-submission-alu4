@@ -15,19 +15,19 @@ pwm DUT(
 	.clk(clk),
 	.resetn(rst_n),
 	.duty_cycle(ui_in[3:0]),
-	.pwm_out(uo_out)
+	.pwm_out(uo_out[0])
 );
 
 endmodule
 
 module pwm(
-	input clk,
-	input resetn,
-	input [3:0] duty_cycle,
-	output pwm_out
+	input wire clk,
+	input wire resetn,
+	input wire [3:0] duty_cycle,
+	output reg pwm_out
 );
 
-reg [3:0]count;
+	reg [3:0] count;
 
 always@(posedge clk or negedge resetn)
 begin

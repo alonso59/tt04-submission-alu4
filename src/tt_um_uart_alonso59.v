@@ -8,16 +8,16 @@ module tt_um_uart_alonso59 (
     input  wire       clk,      // clock
     input  wire       rst_n     // reset_n - low to reset
 );
-	assign uio_oe[7:2] = 0;
+	assign uio_oe[7:0] = {0,1,0,1,1,0};
 	assign uio_out[7:3] = 0;
 	uart uart_inst(.din(ui_in),
-		      .wr_en(uio_oe[0]),
+		       .wr_en(uio_in[0]),
 		       .clk_50m(clk),
-		       .tx(uio_out[0]),
-		       .tx_busy(uio_out[1]),
-		       .rx(uio_in[0]),
-		       .rdy(uio_out[2]),
-		       .rdy_clr(uio_oe[1]),
+		       .tx(uio_out[1]),
+		       .tx_busy(uio_out[2]),
+		       .rx(uio_in[3]),
+		       .rdy(uio_out[4]),
+		       .rdy_clr(uio_in[5]),
 		       .dout(uo_out)
 		      );
 endmodule

@@ -8,8 +8,12 @@ module tt_um_uart_alonso59 (
     input  wire       clk,      // clock
     input  wire       rst_n     // reset_n - low to reset
 );
-	assign uio_oe[7:0] = {0,1,0,1,1,0};
-	assign uio_out[7:3] = 0;
+	assign uio_oe[7:0] = {0, 0,0,1,0,1,1,0};
+	assign uio_out[0] = 0;
+	assign uio_out[3] = 0;
+	assign uio_out[5] = 0;
+	assign uio_out[6] = 0;
+	assign uio_out[7] = 0;
 	uart uart_inst(.din(ui_in),
 		       .wr_en(uio_in[0]),
 		       .clk_50m(clk),

@@ -19,7 +19,7 @@ pwm DUT(
 	.pwm_out(uo_out[0])
 );
 
-	ALU_4bit(.Out(uo_out[4:1]), .Z(out_out[5]), .C[6], .A(ui_in[7:4]), .B(ui_in[7:4]), .Opcode(ui_in[3:0]));
+	ALU_4bit alu1(.Out(uo_out[4:1]), .Z(out_out[5]), .C[6], .A(ui_in[7:4]), .B(ui_in[7:4]), .Opcode(ui_in[3:0]));
 endmodule
 
 module Shifter(shift_out, A, B, Opcode);

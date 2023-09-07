@@ -21,7 +21,16 @@ pwm DUT(
 	.pwm_out(pwm_out)
 );
 
-	ALU_4bit alu1(.Out(alu_out[3:0]), .Z(alu_out[4]), .C(alu_out[5]), .V(alu_out[6]), .P(alu_out[7]), .A({ui_in[7:5],0}), .B({ui_in[7:5],0}), .Opcode(ui_in[3:0]));
+	ALU_4bit alu1(
+	.Out(alu_out[3:0]), 
+	.Z(alu_out[4]), 
+	.C(alu_out[5]), 
+	.V(alu_out[6]), 
+	.P(alu_out[7]), 
+	.A({ui_in[7:5],1'b0}), 
+	.B({ui_in[7:5],1'b0}), 
+	.Opcode(ui_in[3:0])
+	);
 endmodule
 
 module Shifter(shift_out, A, B, Opcode);
@@ -174,7 +183,7 @@ module pwm(
 	input wire clk,
 	input wire resetn,
 	input wire [3:0] duty_cycle,
-	output reg pwm_out
+	output wire pwm_out
 );
 
 	reg [3:0] count;

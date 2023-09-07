@@ -39,7 +39,7 @@ module Shifter(shift_out, A, B, Opcode);
 
 endmodule
 
-module ALU_4bit(Out, Z, C, V, A, B, Opcode);
+module ALU_4bit(Out, Z, C, V, P, A, B, Opcode);
 
 	input [3:0] A, B, Opcode;
 	output Z, C, V, P;

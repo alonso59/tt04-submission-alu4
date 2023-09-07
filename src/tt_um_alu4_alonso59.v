@@ -10,8 +10,7 @@ module tt_um_alu4_alonso59 (
 );
 assign uio_out = 0;
 assign uio_oe = 0;
-assign uo_out[7:5] = 0;
-    
+
 pwm DUT(
 	.clk(clk),
 	.resetn(rst_n),

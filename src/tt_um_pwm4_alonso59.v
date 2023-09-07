@@ -12,10 +12,10 @@ assign uio_out = 0;
 assign uio_oe = 0;
     
 pwm DUT(
-	clk,
-	rst_n,
-	ui_in[3:0],
-	uo_out[0]
+	.clk(clk),
+	.resetn(rst_n),
+	.duty_cycle(ui_in[3:0]),
+	.pwm_out(uo_out)
 );
 
 endmodule

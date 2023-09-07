@@ -31,7 +31,7 @@ pwm DUT(
 	.V(alu_out[6]), 
 	.P(alu_out[7]), 
 	
-	.Out(alu_out[3:0]), 
+	.Out(alu_out[3:0])
 	);
 endmodule
 module ALU_4bit(Out, Z, C, V, P, A, B, Opcode);

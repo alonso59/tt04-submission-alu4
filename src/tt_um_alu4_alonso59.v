@@ -10,14 +10,18 @@ module tt_um_alu4_alonso59 (
 );
 assign uio_out = 0;
 assign uio_oe = 0;
+
+wire [7:0]alu_out;
+wire pwm_out;
+assign uo_out = ui_in[4] ? alu_out:{pwm_out, 7'd0};	
 pwm DUT(
 	.clk(clk),
 	.resetn(rst_n),
 	.duty_cycle(ui_in[3:0]),
-	.pwm_out(uo_out[0])
+	.pwm_out(pwm_out)
 );
 
-	ALU_4bit alu1(.Out(uo_out[3:0]), .Z(uo_out[4]), .C(uo_out[5]), .V(uo_out[6]), .P(uo_out[7]), .A(ui_in[7:4]), .B(ui_in[7:4]), .Opcode(ui_in[3:0]));
+	ALU_4bit alu1(.Out(alu_out[3:0]), .Z(alu_out[4]), .C(alu_out[5]), .V(alu_out[6]), .P(alu_out[7]), .A({ui_in[7:5],0}), .B({ui_in[7:5],0}), .Opcode(ui_in[3:0]));
 endmodule
 
 module Shifter(shift_out, A, B, Opcode);

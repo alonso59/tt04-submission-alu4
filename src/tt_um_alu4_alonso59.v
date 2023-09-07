@@ -167,22 +167,22 @@ module full_adder(Sum, Cout, A, B, Cin);
 
 endmodule
 
-// module pwm(
-// 	input wire clk,
-// 	input wire resetn,
-// 	input wire [3:0] duty_cycle,
-// 	output reg pwm_out
-// );
+module pwm(
+	input wire clk,
+	input wire resetn,
+	input wire [3:0] duty_cycle,
+	output reg pwm_out
+);
 
-// 	reg [3:0] count;
+	reg [3:0] count;
 
-// always@(posedge clk or negedge resetn)
-// begin
-// 	if (!resetn) count <= 4'b0000;
-// 	else if (count <=4'hf) count <= count + 1'b1;
-// 	else count <= 4'b0000;
-// end
+always@(posedge clk or negedge resetn)
+begin
+	if (!resetn) count <= 4'b0000;
+	else if (count <=4'hf) count <= count + 1'b1;
+	else count <= 4'b0000;
+end
 
-// assign pwm_out = (count <= duty_cycle) ? 1:0;
+assign pwm_out = (count <= duty_cycle) ? 1:0;
 
-// endmodule 
+endmodule 
